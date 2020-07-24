@@ -1,0 +1,19 @@
+\frametitle {Technical details}
+\begin{itemize}
+\item Adding measurement ``lines'' to the graph: this is in the CMSSW configuration file--- I would do it
+
+\item Providing measurements:
+\begin{itemize}
+\item two simple-format text files: see \mbox{\href{http://cmssw.cvs.cern.ch/cgi-bin/cmssw.cgi/CMSSW/Alignment/MuonAlignmentAlgorithms/data}{\textcolor{blue}{Alignment/MuonAlignmentAlgorithms/data/Photogrammetry2007.*}}\hspace{-2 cm}}
+\begin{verbatim}
+ME+1/2/01 -3.9173832602512e-05 5.73795e-05
+ME+1/2/02 0.174428948607051 5.73795e-05
+ME+1/2/03 0.348821455510375 5.73795e-05
+...
+\end{verbatim}
+\item ``phipos'' file: $\phi = \mbox{atan2}(Y, X)$ position and uncertainty of each monitored chamber in disk coordinates (radians)
+\item ``phiz'' file: $\phi_z$ angle and uncertainty of each monitored chamber (radians)
+\end{itemize}
+\item Automated machinery takes over from there
+\item We can check consistency via the alignment fit residuals, but it's worth checking against the Photogrammetry2007.* files to make sure that we're using the same conventions
+\end{itemize}
